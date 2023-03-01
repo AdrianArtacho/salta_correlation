@@ -10,5 +10,19 @@ from scipy.stats import pearsonr
 #calculation correlation coefficient and p-value between x and y
 results = pearsonr(x, y)
 
-print(results)
+# print(results)
 # (0.8076177030748631, 0.004717255828132089)
+
+#extract correlation coefficient (rounded to 4 decimal places)
+r = round(pearsonr(x, y)[0], 4)
+
+print("correlation coefficient:", r)
+
+# 0.8076
+
+#extract p-value (rounded to 4 decimal places) 
+p = round(pearsonr(x, y)[1], 4)
+
+print("p-value:", p) 
+
+# 0.0047
