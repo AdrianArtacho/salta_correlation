@@ -3,7 +3,7 @@
 
 #create two arrays
 x = [3, 4, 4, 5, 7, 8, 10, 12, 13, 15]
-y = [2, 4, 4, 5, 4, 7, 8, 19, 14, 10]
+y = [2, 4, 4, 5, 4, 5, 6, 7, 14, 10]
 
 from scipy.stats import pearsonr
 
