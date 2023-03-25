@@ -10,7 +10,7 @@ The Pearson correlation measures how two continuous signals co-vary over time an
 
 ### Caveats ###
 
-1. outliers can skew the results of the correlation estimation and 
+1. outliers can skew the results of the correlation estimation
 
 2. it assumes the data are homoscedastic such that the variance of your data is homogenous across the data range.
 
