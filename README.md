@@ -1,6 +1,6 @@
 # Correlation #
 
-Determining the correaltion values between different segments, according to [this tutorial](https://towardsdatascience.com/four-ways-to-quantify-synchrony-between-time-series-data-b99136c4a9c9).
+Determining the correaltion values between different segments, according to [this tutorial](https://towardsdatascience.com/four-ways-to-quantify-synchrony-between-time-series-data-b99136c4a9c9), and this [collab notebook](https://colab.research.google.com/gist/jcheong0428/c68c60fe4ee8d9e794a5423552344569/synchrony_tutorial.ipynb).
 
 ---
 
