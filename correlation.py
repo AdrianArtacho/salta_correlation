@@ -1,28 +1,16 @@
-#https://www.statology.org/correlation-test-in-python/#:~:text=To%20determine%20if%20the%20correlation,two%2Dtailed%20p%2Dvalue.
-#
+#This script passes down the settings and the source file to the corresponding method.
+from easygui import *
 
-#create two arrays
-x = [3, 4, 4, 5, 7, 8, 10, 12, 13, 15]
-y = [2, 4, 4, 5, 4, 5, 6, 7, 14, 10]
+input_file = 'INPUT/synchrony_sample.csv'
 
-from scipy.stats import pearsonr
+method_choices = ["Pearson correlation", 
+           "Time Lagged Cross Correlation (TLCC)", 
+           "Dynamic Time Warping (DTW)", 
+           "Instantaneous phase synchrony (IPS)"]
+output = choicebox("Select method", "Window Title", method_choices)
 
-#calculation correlation coefficient and p-value between x and y
-results = pearsonr(x, y)
+print("The chosen method is:", output)
 
-# print(results)
-# (0.8076177030748631, 0.004717255828132089)
-
-#extract correlation coefficient (rounded to 4 decimal places)
-r = round(pearsonr(x, y)[0], 4)
-
-print("correlation coefficient:", r)
-
-# 0.8076
-
-#extract p-value (rounded to 4 decimal places) 
-p = round(pearsonr(x, y)[1], 4)
-
-print("p-value:", p) 
-
-# 0.0047
+if output == method_choices[0]:
+    import tut_pearson
+    print(method_choices[0])
