@@ -13,4 +13,17 @@ print("The chosen method is:", output)
 
 if output == method_choices[0]:
     import tut_pearson
-    print(method_choices[0])
+    pearson_values = tut_pearson.main()
+    print(pearson_values)
+elif output == method_choices[1]:
+    import tut_tlcc
+    tlcc_values = tut_tlcc.main()
+    print(tlcc_values)
+elif output == method_choices[2]:
+    import tut_dtw
+    dtw_values = tut_dtw.main()
+    print(dtw_values)
+elif output == method_choices[3]:
+    import tut_ips
+    ips_values = tut_ips.main()
+    print(ips_values)
