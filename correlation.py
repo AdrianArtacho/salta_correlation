@@ -1,7 +1,18 @@
 #This script passes down the settings and the source file to the corresponding method.
 from easygui import *
 
+# VARIABLES -------------
 input_file = 'INPUT/synchrony_sample.csv'
+# -----------------------
+
+import gui_abstractions.gui_choosefile as gui_choosefile
+choosefile_args = ("Choose file #1 (correlation)",         # params_title
+                   "../comparesegments",                     # params_initbrowser
+                   ".csv")                      # params_extensions
+file_chosen = gui_choosefile.main(choosefile_args)
+# print("file_chosen:", file_chosen)
+
+input_file = file_chosen
 
 method_choices = ["Pearson correlation", 
            "Time Lagged Cross Correlation (TLCC)", 
