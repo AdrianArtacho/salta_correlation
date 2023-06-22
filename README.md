@@ -1,14 +1,38 @@
-# Correlation #
+# Correlation
 
 Determining the correaltion values between different segments, according to [this tutorial](https://towardsdatascience.com/four-ways-to-quantify-synchrony-between-time-series-data-b99136c4a9c9), and this [collab notebook](https://colab.research.google.com/gist/jcheong0428/c68c60fe4ee8d9e794a5423552344569/synchrony_tutorial.ipynb).
 
 ---
 
-## Pearson correlation ##
+## Usage
+
+1. Run main script:
+
+    ```shell
+    python correlation.py
+    ```
+
+2. Select method from dialog
+
+    ![select_method.png](images/select_method.png)
+
+---
+
+## Installation
+
+Install requirements:
+
+```shell
+pip install -r requirements.txt
+```
+
+---
+
+### Pearson correlation
 
 The Pearson correlation measures how two continuous signals co-vary over time and indicate the linear relationship as a number between -1 (negatively correlated) to 0 (not correlated) to 1 (perfectly correlated).
 
-### Caveats ###
+#### Caveats
 
 1. outliers can skew the results of the correlation estimation
 
@@ -37,13 +61,17 @@ print(f"Scipy computed Pearson r: {r} and p-value: {p}")
 # out: Scipy computed Pearson r: 0.20587745135619354 and p-value: 3.7902989479463397e-51
 ```
 
-### Rolling window ###
+---
+
+### Rolling window
 
 Once again, the Overall Pearson `r` is a measure of global synchrony that reduces the relationship between two signals to a single value. Nonetheless there is a way to look at moment-to-moment, local synchrony, using Pearson correlation. One way to compute this is by measuring the Pearson correlation in a small portion of the signal, and repeat the process along a rolling window until the entire signal is covered. This can be somewhat subjective as it requires arbitrarily defining the window size you’d like to repeat the procedure. In the code below we use a window size of 120 frames (~4 seconds) and plot the moment-to-moment synchrony in the bottom figure.
 
 Overall, the Pearson correlation is a good place to start as it provides a very simple way to compute both global and local synchrony. However, this still does not provide insights into signal dynamics such as which signal occurs first which can be measured via cross correlations.
 
-## Time Lagged Cross Correlation — assessing signal dynamics ##
+---
+
+## Time Lagged Cross Correlation — assessing signal dynamics
 
 Time lagged cross correlation (TLCC) can identify directionality between two signals such as a leader-follower relationship in which the leader initiates a response which is repeated by the follower. There are couple ways to do investigate such relationship including Granger causality, used in Economics, but note that these still do not necessarily reflect true causality. Nonetheless we can still extract a sense of which signal occurs first by looking at cross correlations.
 
@@ -95,7 +123,9 @@ plt.legend()
 
 In the plot above, we can infer from the negative offset that Subject 1 (S1) is leading the interaction (correlation is maximized when S2 is pulled forward by 46 frames). But once again this assesses signal dynamics at a global level, such as who is leading during the entire 3 minute period. On the other hand we might think that the interaction may be even more dynamic such that the leader follower roles vary from time to time.
 
-### Windowed time lagged cross correlations (WTLCC) ###
+---
+
+### Windowed time lagged cross correlations (WTLCC)
 
 To assess the more fine grained dynamics, we can compute the windowed time lagged cross correlations (WTLCC). This process repeats the time lagged cross correlation in multiple windows of the signal. Then we can analyze each window or take the sum over the windows would provide a score comparing the difference between the leader follower interaction between two individuals.
 
