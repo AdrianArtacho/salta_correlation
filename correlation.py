@@ -1,18 +1,32 @@
 #This script passes down the settings and the source file to the corresponding method.
 from easygui import *
+import pandas as pd
 
 # VARIABLES -------------
 input_file = 'INPUT/synchrony_sample.csv'
 # -----------------------
 
 import gui_abstractions.gui_choosefile as gui_choosefile
-choosefile_args = ("Choose file #1 (correlation)",         # params_title
-                   "../comparesegments",                     # params_initbrowser
-                   ".csv")                      # params_extensions
-file_chosen = gui_choosefile.main(choosefile_args)
+# choosefile_args = ("Choose file #1 (correlation)",         # params_title
+#                    "../comparesegments/inter",                     # params_initbrowser
+#                    ".csv")                      # params_extensions
+# file_chosen = gui_choosefile.main(choosefile_args)
+file_chosen1 = gui_choosefile.main(["Choose file #1 (correlation)", # params_title
+                                   "../comparesegments/inter",      # params_initbrowser
+                                   ".csv"])                            # params_extensions
 # print("file_chosen:", file_chosen)
+file_chosen2 = gui_choosefile.main(["Choose file #2 (correlation)", # params_title
+                                   "../comparesegments/inter",      # params_initbrowser
+                                   ".csv"])                            # params_extensions
 
-input_file = file_chosen
+inter1 = pd.read_csv(file_chosen1)
+inter2 = pd.read_csv(file_chosen2)
+
+inter_frames = [inter1, inter2]
+result = pd.concat(inter_frames)
+print(result.head(5))
+
+# input_file = file_chosen
 
 method_choices = ["Pearson correlation", 
            "Time Lagged Cross Correlation (TLCC)", 

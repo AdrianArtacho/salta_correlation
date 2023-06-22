@@ -12,7 +12,11 @@ Determining the correaltion values between different segments, according to [thi
     python correlation.py
     ```
 
-2. Select method from dialog
+1. Select intermediate files 1 & 2 (to measure correlation from) from the [comparesegments/inter](../comparesegments/inter) folder.
+
+1. A combined `.csv`file will be generated in the `/INPUT` folder.
+
+1. Select method from dialog
 
     ![select_method.png](images/select_method.png)
 
@@ -129,7 +133,7 @@ In the plot above, we can infer from the negative offset that Subject 1 (S1) is 
 
 To assess the more fine grained dynamics, we can compute the windowed time lagged cross correlations (WTLCC). This process repeats the time lagged cross correlation in multiple windows of the signal. Then we can analyze each window or take the sum over the windows would provide a score comparing the difference between the leader follower interaction between two individuals.
 
-## Dynamic Time Warping — synchrony of signals varying in lengths ##
+## Dynamic Time Warping — synchrony of signals varying in lengths
 
 Dynamic time warping (DTW) is a method that computes the path between two signals that minimize the distance between the two signals. The greatest advantage of this method is that it can also deal with signals of different length. Originally devised for speech analysis (learn more in [this video](https://www.youtube.com/watch?v=_K1OsqCicBY)), DTW computes the euclidean distance at each frame across every other frames to compute the minimum path that will match the two signals. One downside is that it cannot deal with missing values so you would need to interpolate beforehand if you have missing data points.
 
@@ -141,7 +145,7 @@ To compute DTW, we will use the `dtw` Python package which will speed up the cal
 
 Here we can see the minimum path shown in the white convex line. In other words, earlier Subject2 data is matched with synchrony of later Subject1 data. The minimum path cost is d=.33 which can be compared with that of other signals.
 
-## Instantaneous phase synchrony ##
+## Instantaneous phase synchrony
 
 Lastly, if you have a time series data that you believe may have oscillating properties (e.g. EEG, fMRI), you may also be able to measure instantaneous phase synchrony. This measure also measures moment-to-moment synchrony between two signals. It can be somewhat subjective because you need to filter the data to the wavelength of interest but you might have theoretical reasons for determining such bands. To calculate phase synchrony, we need to extract the phase of the signal which can be done by using the Hilbert transform which splits the signal into its phase and power ([learn more about Hilbert transform here](https://www.youtube.com/watch?v=VyLU8hlhI-I)). This allows us to assess if two signals are in phase (moving up and down together) or out of phase.
 
@@ -151,6 +155,6 @@ Lastly, if you have a time series data that you believe may have oscillating pro
 
 The instantaneous phase synchrony measure is a great way to compute moment-to-moment synchrony between two signals without arbitrarily deciding the window size as done in rolling window correlations. If you’d like to know how instantaneous phase synchrony compares to windowed correlations, [check out my earlier blog post here](http://jinhyuncheong.com/jekyll/update/2017/12/10/Timeseries_synchrony_tutorial_and_simulations.html).
 
-## Conclusion ##
+## Conclusion
 
 Here we covered four ways to measure synchrony between time series data: Pearson correlation, time lagged cross correlations, dynamic time warping, and instantaneous phase synchrony. Deciding the synchrony metric will be based on the type of signal you have, the assumptions you have about the data, and your objective in what synchrony information you’d like from the data. Feel free to leave any questions or comments below!
