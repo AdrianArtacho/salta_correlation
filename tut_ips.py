@@ -5,6 +5,11 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import scipy.stats as stats
+
+# VARIABLES-------------
+filepath = 'INPUT/synchrony_sample.csv'
+#-----------------------
+
 def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs
     low = lowcut / nyq
@@ -20,7 +25,17 @@ def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
 
 
 def main(**kwargs):
-    df = pd.read_csv('INPUT/synchrony_sample.csv')
+    # print(kwargs)
+    for key, value in kwargs.items():
+        # print("{0} = {1}".format(key, value))
+        if key == 'filepath':
+            filepath = value
+        elif key == 'suptitle':
+            suptitle_value = value
+        elif key == 'ylabel':
+            ylabel_value = value
+
+    df = pd.read_csv(filepath)
 
     lowcut  = .01
     highcut = .5

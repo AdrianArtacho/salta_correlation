@@ -3,8 +3,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 from dtw import dtw,accelerated_dtw
 
+# VARIABLES-----------
+filepath = 'INPUT/synchrony_sample.csv'
+#---------------------
+
 def main(**kwargs):
-    df = pd.read_csv('INPUT/synchrony_sample.csv')
+    # print(kwargs)
+    for key, value in kwargs.items():
+        # print("{0} = {1}".format(key, value))
+        if key == 'filepath':
+            filepath = value
+        elif key == 'suptitle':
+            suptitle_value = value
+        elif key == 'ylabel':
+            ylabel_value = value
+   
+    df = pd.read_csv(filepath)
 
     d1 = df['S1_Joy'].interpolate().values
     d2 = df['S2_Joy'].interpolate().values

@@ -3,6 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# VARIABLES--------
+filepath = 'INPUT/synchrony_sample.csv' #dummy
+#------------------
+
 def crosscorr(datax, datay, lag=0, wrap=False):
     """ Lag-N cross correlation. 
     Shifted data filled with NaNs 
@@ -24,7 +28,17 @@ def crosscorr(datax, datay, lag=0, wrap=False):
         return datax.corr(datay.shift(lag))
 
 def main(**kwargs):
-    df = pd.read_csv('INPUT/synchrony_sample.csv')
+    # print(kwargs)
+    for key, value in kwargs.items():
+        # print("{0} = {1}".format(key, value))
+        if key == 'filepath':
+            filepath = value
+        elif key == 'suptitle':
+            suptitle_value = value
+        elif key == 'ylabel':
+            ylabel_value = value
+
+    df = pd.read_csv(filepath)
 
     d1 = df['S1_Joy']
     d2 = df['S2_Joy']
