@@ -14,7 +14,7 @@ Determining the correaltion values between different segments, according to [thi
 
 1. Select intermediate files 1 & 2 (to measure correlation from) from the [comparesegments/inter](../comparesegments/inter) folder.
 
-1. A combined `.csv`file will be generated in the `/INPUT` folder.
+1. A combined `.csv` file will be generated in the `/INPUT` folder.
 
 1. Select method from dialog
 
