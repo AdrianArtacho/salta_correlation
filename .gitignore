@@ -50,3 +50,7 @@ Thumbs.db
 
 # Exclude files from virtual environment
 .venv/
+
+# Ignore all the contents of a folder, but keep empy folder structure
+INPUT/*
+!INPUT/.gitkeep
