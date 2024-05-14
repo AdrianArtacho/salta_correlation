@@ -7,7 +7,7 @@ import combine_names
 input_file = 'INPUT/synchrony_sample.csv'
 # -----------------------
 
-import gui_abstractions.gui_choosefile as gui_choosefile
+import gui.gui_choosefile as gui_choosefile
 file_chosen1 = gui_choosefile.main(["Choose file #1 (correlation)", # params_title
                                    "../comparesegments/inter",      # params_initbrowser
                                    ".csv"])                         # params_extensions
