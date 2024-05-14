@@ -18,7 +18,7 @@ Determining the correaltion values between different segments, according to [thi
 
 1. Select method from dialog
 
-    ![select_method.png](images/select_method.png)
+    ![select_method.png](doc/images/corre_select_method.png)
 
 ---
 
