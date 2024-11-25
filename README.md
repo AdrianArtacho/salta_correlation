@@ -24,9 +24,11 @@ Determining the correaltion values between different segments, according to [thi
 
 ## Installation
 
-Install requirements:
+Vreate VENV and install requirements:
 
 ```shell
+python3 -m venv ./.venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
