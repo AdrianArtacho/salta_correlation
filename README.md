@@ -1,3 +1,25 @@
+# Alignment
+
+To evaluate how well-aligned two lists of timepoints (a reference list and a proposed list) are, we can compute a numeric score. Here's a step-by-step approach:
+
+Align the Lists: For each timepoint in the proposed list, find the nearest timepoint in the reference list.
+
+Compute Errors: Calculate the absolute difference between each proposed timepoint and its closest reference timepoint.
+
+Aggregate the Errors: Use an aggregation metric, such as the mean absolute error (MAE), root mean squared error (RMSE), or sum of absolute errors.
+
+Penalty for Missing Matches: If the proposed list has more or fewer points than the reference, penalize for the unmatched timepoints.
+
+---
+
+## Usage
+
+```shell
+python ALIGNMENT.py
+```
+
+---
+
 # Correlation
 
 Determining the correaltion values between different segments, according to [this tutorial](https://towardsdatascience.com/four-ways-to-quantify-synchrony-between-time-series-data-b99136c4a9c9), and this [collab notebook](https://colab.research.google.com/gist/jcheong0428/c68c60fe4ee8d9e794a5423552344569/synchrony_tutorial.ipynb).

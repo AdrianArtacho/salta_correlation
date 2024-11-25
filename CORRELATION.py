@@ -2,18 +2,21 @@
 from easygui import *
 import pandas as pd
 import combine_names
+# import gui.gui_choosefile as gui_choosefile
+import gui.gui_browse_t as gui_browse
 
 # VARIABLES -------------
 input_file = 'INPUT/synchrony_sample.csv'
 # -----------------------
 
-import gui.gui_choosefile as gui_choosefile
-file_chosen1 = gui_choosefile.main(["Choose file #1 (correlation)", # params_title
-                                   "../comparesegments/inter",      # params_initbrowser
-                                   ".csv"])                         # params_extensions
-file_chosen2 = gui_choosefile.main(["Choose file #2 (correlation)", # params_title
-                                   "../comparesegments/inter",      # params_initbrowser
-                                   ".csv"])                         # params_extensions
+
+file_chosen1 = gui_browse.main(params_title="Choose file #1 (correlation)",         # params_title
+                                   params_initbrowser="../comparesegments/inter",   # params_initbrowser
+                                   params_extensions=".csv")                        # params_extensions
+
+file_chosen2 = gui_browse.main(params_title="Choose file #2 (correlation)",         # params_title
+                                   params_initbrowser="../comparesegments/inter",   # params_initbrowser
+                                   params_extensions=".csv")                        # params_extensions
 
 inter1 = pd.read_csv(file_chosen1)
 inter2 = pd.read_csv(file_chosen2)
