@@ -9,7 +9,7 @@ Determining the correaltion values between different segments, according to [thi
 1. Run main script:
 
     ```shell
-    python correlation.py
+    python CORRELATION.py
     ```
 
 1. Select intermediate files 1 & 2 (to measure correlation from) from the [comparesegments/inter](../comparesegments/inter) folder.
