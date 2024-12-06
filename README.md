@@ -190,3 +190,5 @@ Here we covered four ways to measure synchrony between time series data: Pearson
 * Define the name of the output JSON file from the sources OR alternatively ask the user
 * Metrics in a graph (to compare alongside each other)
 * What do the metrics mean, and which one should I favor?
+
+* Where was this backwards engineering of the weights, based on a reference segmentation?
