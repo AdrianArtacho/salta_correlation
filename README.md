@@ -182,3 +182,11 @@ The instantaneous phase synchrony measure is a great way to compute moment-to-mo
 ## Conclusion
 
 Here we covered four ways to measure synchrony between time series data: Pearson correlation, time lagged cross correlations, dynamic time warping, and instantaneous phase synchrony. Deciding the synchrony metric will be based on the type of signal you have, the assumptions you have about the data, and your objective in what synchrony information you’d like from the data. Feel free to leave any questions or comments below!
+
+---
+
+# ToDo
+
+* Define the name of the output JSON file from the sources OR alternatively ask the user
+* Metrics in a graph (to compare alongside each other)
+* What do the metrics mean, and which one should I favor?
