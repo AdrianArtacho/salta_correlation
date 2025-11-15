@@ -3,4 +3,4 @@
 	url = https://github.com/AdrianArtacho/salta_docs.git
 [submodule "gui"]
 	path = gui
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_abstractions.git
+url=https://github.com/AdrianArtacho/salta_gui.git
